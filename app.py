@@ -45,6 +45,8 @@ def home_post():
 
     data = request.get_json()
 
+    print(data)
+
     resp = None
 
     if data['type'] == 'REMOVED_FROM_SPACE':
