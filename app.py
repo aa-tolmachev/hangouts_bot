@@ -18,10 +18,23 @@ Simple Hangouts Chat bot that responds to events and
 messages from a room.
 """
 # [START basic-bot]
+from flask import Flask
+from flask import request
+import requests
+from flask import make_response
+import os
+import json
+from pandas import DataFrame
+import traceback
 import logging
 from flask import Flask, render_template, request, json
 
 app = Flask(__name__)
+
+@app.route('/helloworld', methods=['GET'])
+def helloworld():
+    x = 'helloworld'
+    return x
 
 @app.route('/', methods=['POST'])
 def home_post():
