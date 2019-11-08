@@ -46,7 +46,7 @@ def home_post():
     data = request.get_json()
 
     print(data)
-
+    
     resp = None
 
     if data['type'] == 'REMOVED_FROM_SPACE':
@@ -75,7 +75,7 @@ def format_response(event):
         text = 'Thanks for adding me to a DM, %s!' % event['user']['displayName']
 
     elif event['type'] == 'MESSAGE':
-        text = 'Your message: "%s"' % event['message']['text']
+        text = 'Your message: "%s" , my master <users/100441901391532176964>' % event['message']['text']
 
     return {'text': text}
 
