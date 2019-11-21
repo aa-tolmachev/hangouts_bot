@@ -31,6 +31,37 @@ from flask import Flask, render_template, request, json
 
 app = Flask(__name__)
 
+@app.route('/test_dm', methods=['GET'])
+def test_dm():
+    x = 'helloworld'
+    space_url = 'https://chat.googleapis.com/v1/spaces/4OpU8gAAAAE/messages'
+
+    params = {
+      "cards": [
+        {
+          "sections": [
+            {
+              "widgets": [
+                {
+                  "textParagraph": {
+                    "text": "Hi-diddly-done!<br><font color=\"#0000ff\"><b>New issues to Vera:</b></font><br><i>VERA-102</i>"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+
+    r = requests.post(space_url,
+                      json=params)
+    
+    print(r.status_code)
+    print(r.text)
+    
+    return x
+
 @app.route('/helloworld', methods=['GET'])
 def helloworld():
     x = 'helloworld'
